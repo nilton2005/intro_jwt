@@ -6,9 +6,9 @@ import userRoutes from "./app/routes/user.routes.js"; // Importa rutas de usuari
 
 const app = express(); // Crea instancia de Express
 
-// Configura CORS - permite solicitudes desde localhost:8081 (adjust if your frontend is different)
+// Configura CORS - permite solicitudes desde el frontend en port 3000
 const corsOptions = {
-  origin: "http://localhost:8081" // Example frontend origin
+  origin: "http://localhost:3001" // Frontend origin
 };
 app.use(cors(corsOptions));
 
@@ -36,7 +36,7 @@ app.use('/api/auth', authRoutes); // Rutas de autenticación bajo /api/auth
 app.use('/api/test', userRoutes); // Rutas de prueba de acceso bajo /api/test
 
 // Define el puerto del servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
